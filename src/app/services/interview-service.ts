@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 export interface InterviewSlot{
@@ -18,4 +20,12 @@ export interface InterviewSlot{
 
 export class InterviewService {
   
+  private baseUrl = 'http://localhost:8080';
+
+  constructor(private http: HttpClient){}
+
+  getAvailableSlots() : Observable<InterviewSlot[]>{
+    return this.http.get<InterviewSlot[]>('${this.baseUrl}/slot/available');
+  }
+
 }
