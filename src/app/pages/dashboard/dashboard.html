@@ -109,13 +109,12 @@
       </div>
 
       <div class="p-4 border-t border-slate-100 bg-slate-50/50 rounded-b-2xl mt-auto">
-        <button [disabled]="!slot.available"
+        <button [disabled]="!slot.available" (click)="bookAppointment(slot)"
           [ngClass]="slot.available ? 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white' : 'bg-slate-100 border-2 border-transparent text-slate-400 cursor-not-allowed'"
           class="w-full py-2.5 rounded-lg font-bold text-sm transition-colors shadow-sm">
           {{ slot.available ? 'Book Appointment' : 'Slot Unavailable' }}
         </button>
       </div>
-
     </div>
 
     } @empty {

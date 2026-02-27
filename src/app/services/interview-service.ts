@@ -23,4 +23,20 @@ export class InterviewService {
   getAvailableSlots() : Observable<InterviewSlot[]> {
     return this.http.get<InterviewSlot[]>(`${this.baseUrl}/slot/available`);
   }
+
+  bookSlot(slot: InterviewSlot): Observable<any> {
+    
+    const bookingPayload = {
+      slotId: slot.slotId,
+      candidateId: 1, 
+      candidateName: "Udara Dewshan", 
+      interviewerName: slot.interviewerName,
+      startTime: slot.startTime,
+      endTime: slot.endTime,
+      status: "BOOKED"
+    };
+
+    return this.http.post(`${this.baseUrl}/booking/add`, bookingPayload); 
+  }
 }
+  

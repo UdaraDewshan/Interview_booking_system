@@ -35,4 +35,23 @@ export class Dashboard implements OnInit {
       }
     });
   }
+
+
+  bookAppointment(slot: InterviewSlot) {
+    const isConfirmed = confirm(`Are you sure you want to book the interview with ${slot.interviewerName}?`);
+    
+    if (isConfirmed) {
+      this.interviewService.bookSlot(slot).subscribe({
+        next: (response) => {
+          alert('Appointment Booked Successfully!');
+          
+          this.loadSlots(); 
+        },
+        error: (err) => {
+          console.error("Booking Error:", err);
+          alert('Failed to book the appointment. Please try again.');
+        }
+      });
+    }
+  }
 }
