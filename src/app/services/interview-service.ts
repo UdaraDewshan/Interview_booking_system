@@ -43,8 +43,8 @@ export class InterviewService {
     return this.http.get<InterviewSlot[]>(`${this.baseUrl}/slot/booked`);
   }
 
-  addSlots(slotData: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/slot/add`,slotData);
+  addSlot(slotData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/slot/add`, slotData, { responseType: 'text' });
   }
 
 }
