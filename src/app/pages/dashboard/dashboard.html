@@ -1,12 +1,15 @@
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    
+
   <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
     <div>
       <h1 class="text-2xl font-black text-slate-900">Interview Overview</h1>
       <p class="text-slate-500 text-sm mt-1 font-medium">Manage all your upcoming technical interviews efficiently.</p>
     </div>
-    <button class="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-indigo-600 transition-all shadow-md flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+    <button
+      class="bg-slate-900 text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-indigo-600 transition-all shadow-md flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
       Create New Slot
     </button>
   </div>
@@ -14,25 +17,36 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
       <div class="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
       </div>
       <div>
         <p class="text-sm font-bold text-slate-500">Total Slots</p>
         <p class="text-2xl font-black text-slate-900">24</p>
       </div>
     </div>
-    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 border-b-4 border-b-emerald-500">
+    <div
+      class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 border-b-4 border-b-emerald-500">
       <div class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
       </div>
       <div>
         <p class="text-sm font-bold text-slate-500">Available</p>
         <p class="text-2xl font-black text-slate-900">12</p>
       </div>
     </div>
-    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 border-b-4 border-b-rose-500">
+    <div
+      class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 border-b-4 border-b-rose-500">
       <div class="w-12 h-12 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
       </div>
       <div>
         <p class="text-sm font-bold text-slate-500">Booked</p>
@@ -41,51 +55,82 @@
     </div>
   </div>
 
+
   <h2 class="text-lg font-black text-slate-800 mb-4">Upcoming Interview Slots</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-    <div *ngFor="let slot of interviewSlots" 
-         class="bg-white rounded-2xl border transition-all duration-200 hover:shadow-md flex flex-col"
-         [ngClass]="slot.isAvailable ? 'border-slate-200 hover:border-emerald-300' : 'border-slate-200 opacity-80'">
-      
+
+    @for (slot of interviewSlots; track $index) {
+
+    <div class="bg-white rounded-2xl border transition-all duration-200 hover:shadow-md flex flex-col"
+      [ngClass]="slot.available ? 'border-slate-200 hover:border-emerald-300' : 'border-slate-200 opacity-80'">
+
       <div class="p-6 flex-1">
         <div class="flex justify-between items-start mb-4">
-          <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold text-lg border border-slate-200 shadow-inner">
-            {{ slot.interviewerName.charAt(0) }}
+          <div
+            class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold text-lg border border-slate-200 shadow-inner">
+            {{ slot.interviewerName ? slot.interviewerName.charAt(0) : 'U' }}
           </div>
-          <span *ngIf="slot.isAvailable" class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black rounded-md border border-emerald-200 tracking-wider uppercase">
+
+          @if (slot.available) {
+          <span
+            class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black rounded-md border border-emerald-200 tracking-wider uppercase">
             Available
           </span>
-          <span *ngIf="!slot.isAvailable" class="px-2.5 py-1 bg-rose-50 text-rose-700 text-[10px] font-black rounded-md border border-rose-200 tracking-wider uppercase">
+          } @else {
+          <span
+            class="px-2.5 py-1 bg-rose-50 text-rose-700 text-[10px] font-black rounded-md border border-rose-200 tracking-wider uppercase">
             Booked
           </span>
+          }
         </div>
 
-        <h3 class="font-bold text-slate-900 text-lg">{{ slot.interviewerName }}</h3>
+        <h3 class="font-bold text-slate-900 text-lg">{{ slot.interviewerName || 'Unknown Interviewer' }}</h3>
         <p class="text-xs text-slate-500 font-semibold mb-4 uppercase tracking-wide">Technical Interviewer</p>
 
         <div class="space-y-2">
-          <div class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
-            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <div
+            class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
             {{ slot.startTime | date:'mediumDate' }}
           </div>
-          <div class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
-            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div
+            class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
             {{ slot.startTime | date:'shortTime' }} - {{ slot.endTime | date:'shortTime' }}
           </div>
         </div>
       </div>
 
       <div class="p-4 border-t border-slate-100 bg-slate-50/50 rounded-b-2xl mt-auto">
-        <button [disabled]="!slot.isAvailable"
-                [ngClass]="slot.isAvailable ? 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white' : 'bg-slate-100 border-2 border-transparent text-slate-400 cursor-not-allowed'"
-                class="w-full py-2.5 rounded-lg font-bold text-sm transition-colors shadow-sm">
-          {{ slot.isAvailable ? 'Book Appointment' : 'Slot Unavailable' }}
+        <button [disabled]="!slot.available"
+          [ngClass]="slot.available ? 'bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white' : 'bg-slate-100 border-2 border-transparent text-slate-400 cursor-not-allowed'"
+          class="w-full py-2.5 rounded-lg font-bold text-sm transition-colors shadow-sm">
+          {{ slot.available ? 'Book Appointment' : 'Slot Unavailable' }}
         </button>
       </div>
 
     </div>
+
+    } @empty {
+    <div class="col-span-full bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl p-10 text-center">
+      <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm mb-4">
+        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-1">No Upcoming Slots</h3>
+      <p class="text-slate-500 text-sm">There are no interview slots available at the moment. Create a new slot to get
+        started.</p>
+    </div>
+    }
 
   </div>
 </main>
