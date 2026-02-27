@@ -4,16 +4,15 @@ import { BookedHistory } from './components/booked-history/booked-history';
 
 
 export const routes: Routes = [
-
     { 
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full' 
     },
     {   path: 'dashboard',
-         component: Dashboard 
+        component: Dashboard 
     },
     {   path: 'booked',
-         component: BookedHistory
+        component: BookedHistory
     }
 ];

@@ -38,5 +38,10 @@ export class InterviewService {
 
     return this.http.post(`${this.baseUrl}/booking/add`, bookingPayload); 
   }
+
+  getBookedSlots(): Observable<InterviewSlot[]> {
+    return this.http.get<InterviewSlot[]>(`${this.baseUrl}/slot/booked`);
+  }
+  
 }
   
