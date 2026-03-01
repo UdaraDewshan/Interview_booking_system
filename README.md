@@ -1,59 +1,62 @@
-# BookingSystem
+# 🚀 InterviewSync - Interview Booking System (Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Welcome to the frontend repository of **InterviewSync**! This is a modern, responsive, and user-friendly web application built with Angular and Tailwind CSS to manage interview slots and bookings efficiently. 
 
-## Development server
+This frontend is designed to seamlessly integrate with a Spring Boot REST API backend.
 
-To start a local development server, run:
+## ✨ Features Implemented
 
-```bash
-ng serve
-```
+* **🎛️ Interactive Dashboard (Available Slots):** * Fetches and displays all currently available interview slots from the backend.
+    * Modern card-based UI with clear details (Interviewer name, date, and time).
+* **📅 Seamless Booking Mechanism:** * Users can book an available slot with a single click.
+    * Auto-updates the UI dynamically using Angular's Change Detection (booked slots disappear instantly).
+* **📜 Booking History Page:** * A dedicated page to view all confirmed and past bookings.
+    * Distinctive UI styling (Red 'BOOKED' badges and disabled buttons) to differentiate from available slots.
+* **➕ Create New Slot (Modal Form):** * A sleek, modern pop-up modal to add new interview slots to the system.
+    * Auto-fills the current date and time for faster data entry.
+* **🧭 Modern Navigation & Routing:** * Smooth, SPA (Single Page Application) navigation using Angular Router without page reloads.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Technology Stack
 
-## Code scaffolding
+* **Framework:** Angular (Standalone Components, Modern Control Flow `@if`, `@for`)
+* **Styling:** Tailwind CSS
+* **Language:** TypeScript / HTML / CSS
+* **HTTP Client:** RxJS Observables with Angular `HttpClient`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ⚙️ Prerequisites
 
-```bash
-ng generate component component-name
-```
+Before you begin, ensure you have met the following requirements:
+* You have installed the latest version of [Node.js](https://nodejs.org/en/) and NPM.
+* You have installed the [Angular CLI](https://angular.io/cli) globally (`npm install -g @angular/cli`).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Installation & Setup
 
-```bash
-ng generate --help
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/interview-sync-frontend.git](https://github.com/your-username/interview-sync-frontend.git)
+    cd interview-sync-frontend
+    ```
 
-## Building
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-To build the project run:
+3.  **Run the development server:**
+    ```bash
+    ng serve
+    ```
+4.  **View the App:** Open your browser and navigate to `http://localhost:4200/`.
 
-```bash
-ng build
-```
+## 🔌 API Integration Details
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This frontend is configured to communicate with a Spring Boot Backend. Ensure your backend is running on `http://localhost:8080` (or update the `baseUrl` in the `interview-service.ts` file).
 
-## Running unit tests
+**Key Endpoints Used:**
+* `GET /slot/available` - Fetch all available slots
+* `GET /slot/booked` - Fetch all booked slots
+* `POST /booking/add` - Create a new booking
+* `POST /slot/add` - Create a new interview slot
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+*Built with Udara Dewshan*
