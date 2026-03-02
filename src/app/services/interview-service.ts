@@ -12,6 +12,13 @@ export interface InterviewSlot {
   status: string;
 }
 
+export interface Candidate {
+  id?: number; 
+  name: string;
+  email: string;
+  contactNo: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -45,6 +52,10 @@ export class InterviewService {
 
   addSlot(slotData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/slot/add`, slotData, { responseType: 'text' });
+  }
+
+  getCandidates(): Observable<Candidate[]> {
+    return this.http.get<Candidate[]>(`${this.baseUrl}/candidate/all`);
   }
 
 }
