@@ -35,6 +35,15 @@ export class Candidates implements OnInit{
     });
   }
 
-  
+  openModel(){
+    this.isModelOpen = true;
+  }
+
+  closeModel(){
+    this.isModelOpen = false;
+    this.newCandidate = {name: '', email: '', contactNo: ''};
+  }
+
+ 
 
 }

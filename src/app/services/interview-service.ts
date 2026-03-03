@@ -57,6 +57,12 @@ export class InterviewService {
   getCandidates(): Observable<Candidate[]>{
     return this.http.get<Candidate[]>(`${this.baseUrl}/candidate/all`);
   }
+
+  addCandidate(candidateData : Candidate): Observable<any>{
+    return this.http.post(`${this.baseUrl}/candidate/add`, candidateData,{
+      responseType: 'text'
+    });
+  }
   
 }
   
