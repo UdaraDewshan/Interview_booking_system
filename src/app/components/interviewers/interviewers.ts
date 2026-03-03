@@ -45,4 +45,19 @@ export class Interviewers implements OnInit{
     this.newInterviewer = { name: '', email: '', specialization: '' };
   }
 
+  saveInterviewer() {
+    this.interviewService.addInterviewew(this.newInterviewer).subscribe({
+      next: (res) => {
+        alert('New Interviewer Added Successfully!');
+        this.closeModal();
+        this.loadInterviewers(); 
+      },
+      error: (err) => {
+        console.error("Error adding interviewer:", err);
+        alert('Failed to add interviewer.');
+      }
+    });
+  }
+
+
 }
