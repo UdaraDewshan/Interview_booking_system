@@ -74,7 +74,11 @@ export class InterviewService {
   getInterviewers(): Observable<Interviewer[]>{
     return this.http.get<Interviewer[]>(`${this.baseUrl}/interviewer/all`);
   }
-  
+
+  addInterviewew(interviewerData: Interviewer): Observable<any>{
+    return this.http.post(`${this.baseUrl}/interviewer/add`, interviewerData,{responseType: 'text'});
+  }
+
   
 }
   

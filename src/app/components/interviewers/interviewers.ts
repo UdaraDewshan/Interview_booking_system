@@ -35,4 +35,14 @@ export class Interviewers implements OnInit{
       error: (err) => console.error("Error loading interviewers:", err)
     });
   }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.newInterviewer = { name: '', email: '', specialization: '' };
+  }
+
 }
