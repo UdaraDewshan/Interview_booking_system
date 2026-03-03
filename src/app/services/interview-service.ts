@@ -19,6 +19,13 @@ export interface Candidate {
   contactNo: string;
 }
 
+export interface Interviewer {
+  id?: number;
+  name: string;
+  email: string;
+  specialization: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })

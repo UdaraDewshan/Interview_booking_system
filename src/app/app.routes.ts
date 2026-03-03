@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { BookedHistory } from './components/booked-history/booked-history';
 import { Candidates } from './components/candidates/candidates';
+import { Interviewers } from './components/interviewers/interviewers';
 
 
 export const routes: Routes = [
@@ -18,5 +19,9 @@ export const routes: Routes = [
     },
     {   path: 'candidates',
         component: Candidates 
+    },
+    {
+        path: 'interviewers',
+        component: Interviewers
     }
 ];
