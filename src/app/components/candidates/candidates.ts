@@ -44,6 +44,18 @@ export class Candidates implements OnInit{
     this.newCandidate = {name: '', email: '', contactNo: ''};
   }
 
- 
-
+  saveCandidate(){
+    this.interviewService.addCandidate(this.newCandidate).subscribe({
+      next: (res) => {
+        alert('Candidate Added Successfully!');
+        this.closeModel();
+        this.loadCandidates();
+      },
+      error: (err) => {
+        console.error("Error adding candidate:", err);
+        alert('Failed to add candidate. Please try again.');
+      }
+    });
+  }
+  
 }
