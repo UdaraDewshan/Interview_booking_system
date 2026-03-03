@@ -70,6 +70,10 @@ export class InterviewService {
       responseType: 'text'
     });
   }
+
+  getInterviewers(): Observable<Interviewer[]>{
+    return this.http.get<Interviewer[]>(`${this.baseUrl}/interviewer/all`);
+  }
   
 }
   
