@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { InterviewService, Candidate } from '../../services/interview-service';
+
 
 @Component({
   selector: 'app-candidates',
@@ -6,6 +8,33 @@ import { Component } from '@angular/core';
   templateUrl: './candidates.html',
   styleUrl: './candidates.css',
 })
-export class Candidates {
+export class Candidates implements OnInit{
+
+  candidateList: Candidate[] = [];
+  isModelOpen = false;
+
+  newCandidate: Candidate = {
+    name: '',
+    email: '',
+    contactNo: ''
+  };
+
+  constructor(private interviewService: InterviewService, private cdr: ChangeDetectorRef){}
   
+  ngOnInit(): void {
+    this.loadCandidates();
+  }
+
+  loadCandidates(){
+    this.interviewService.getCandidates().subscribe({
+      next: (data) => {
+        this.candidateList = data;
+        this.cdr.detectChanges();
+      },
+      error: (err) => console.error("error loading candidate",err)
+    });
+  }
+
+  
+
 }

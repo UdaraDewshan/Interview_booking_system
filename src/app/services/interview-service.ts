@@ -54,9 +54,9 @@ export class InterviewService {
     return this.http.post(`${this.baseUrl}/slot/add`, slotData, { responseType: 'text' });
   }
 
-  getCandidates(): Observable<Candidate[]> {
+  getCandidates(): Observable<Candidate[]>{
     return this.http.get<Candidate[]>(`${this.baseUrl}/candidate/all`);
   }
-
+  
 }
   

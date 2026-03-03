@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // 1. මේක අලුතෙන් දැම්මා
+import { FormsModule } from '@angular/forms';
 import { InterviewService, InterviewSlot } from '../../services/interview-service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule], // 2. මෙතනට FormsModule දැම්මා
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -68,7 +68,6 @@ export class Dashboard implements OnInit {
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     const currentDateTime = now.toISOString().slice(0, 16); 
 
-    // ඒ වෙලාව අපේ inputs දෙකට සෙට් කරනවා
     this.newSlot.startTime = currentDateTime;
     this.newSlot.endTime = currentDateTime;
   }
