@@ -1,11 +1,38 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Interviewer, InterviewService } from '../../services/interview-service';
 
 @Component({
   selector: 'app-interviewers',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './interviewers.html',
   styleUrl: './interviewers.css',
 })
-export class Interviewers {
+export class Interviewers implements OnInit{
 
+  interviewersList: Interviewer[] = [];
+  isModalOpen = false;
+
+  newInterviewer: Interviewer = {
+    name: '',
+    email: '',
+    specialization: ''
+  };
+
+  constructor(private interviewService: InterviewService, private cdr: ChangeDetectorRef){}
+
+  ngOnInit(): void {
+    this.loadInterviewers();
+  }
+
+  loadInterviewers() {
+    this.interviewService.getInterviewers().subscribe({
+      next: (data) => {
+        this.interviewersList = data;
+        this.cdr.detectChanges();
+      },
+      error: (err) => console.error("Error loading interviewers:", err)
+    });
+  }
 }

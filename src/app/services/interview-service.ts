@@ -75,5 +75,6 @@ export class InterviewService {
     return this.http.get<Interviewer[]>(`${this.baseUrl}/interviewer/all`);
   }
   
+  
 }
   
