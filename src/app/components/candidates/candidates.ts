@@ -1,10 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { InterviewService, Candidate } from '../../services/interview-service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-candidates',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './candidates.html',
   styleUrl: './candidates.css',
 })
