@@ -3,13 +3,16 @@ import { Dashboard } from './pages/dashboard/dashboard';
 import { BookedHistory } from './components/booked-history/booked-history';
 import { Candidates } from './components/candidates/candidates';
 import { Interviewers } from './components/interviewers/interviewers';
+import { Login } from './components/login/login';
 
 
 export const routes: Routes = [
-    { 
-        path: '',
-        redirectTo: 'dashboard',
+    {   path: '', 
+        redirectTo: 'login', 
         pathMatch: 'full' 
+    }, 
+    {   path: 'login',
+        component: Login 
     },
     {   path: 'dashboard',
         component: Dashboard 
