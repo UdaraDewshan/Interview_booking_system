@@ -1,7 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavBar } from "./components/nav-bar/nav-bar";
-import { Dashboard } from "./pages/dashboard/dashboard";
 
 
 @Component({
@@ -21,6 +20,4 @@ export class App {
         }
     });
   }
-
-
 }
