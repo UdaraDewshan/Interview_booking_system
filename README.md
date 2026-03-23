@@ -1,62 +1,48 @@
-# 🚀 InterviewSync - Interview Booking System (Frontend)
+# 🚀 InterviewSync | Enterprise Interview Scheduling Platform (Frontend)
 
-Welcome to the frontend repository of **InterviewSync**! This is a modern, responsive, and user-friendly web application built with Angular and Tailwind CSS to manage interview slots and bookings efficiently. 
+![Angular](https://img.shields.io/badge/Angular-17+-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JWT Security](https://img.shields.io/badge/JWT_Secured-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-This frontend is designed to seamlessly integrate with a Spring Boot REST API backend.
+Welcome to the frontend repository of **InterviewSync**! This is a modern, highly secure, and responsive web application engineered to streamline the interview scheduling process for enterprise HR teams. Built with the latest Angular standalone components and beautifully styled with Tailwind CSS.
 
-## ✨ Features Implemented
+This frontend serves as the interactive client for the robust **Spring Boot REST API** backend, featuring advanced state management and secure token-based authentication.
 
-* **🎛️ Interactive Dashboard (Available Slots):** * Fetches and displays all currently available interview slots from the backend.
-    * Modern card-based UI with clear details (Interviewer name, date, and time).
-* **📅 Seamless Booking Mechanism:** * Users can book an available slot with a single click.
-    * Auto-updates the UI dynamically using Angular's Change Detection (booked slots disappear instantly).
-* **📜 Booking History Page:** * A dedicated page to view all confirmed and past bookings.
-    * Distinctive UI styling (Red 'BOOKED' badges and disabled buttons) to differentiate from available slots.
-* **➕ Create New Slot (Modal Form):** * A sleek, modern pop-up modal to add new interview slots to the system.
-    * Auto-fills the current date and time for faster data entry.
-* **🧭 Modern Navigation & Routing:** * Smooth, SPA (Single Page Application) navigation using Angular Router without page reloads.
+---
+
+## ✨ Enterprise-Grade Features
+
+### 🔐 Robust Security & Authentication
+* **JWT Integration:** Fully secured HTTP communication using JSON Web Tokens (JWT) via Angular `HttpInterceptors`.
+* **Route Protection:** Implemented Angular `CanActivate` Guards to protect internal dashboards and prevent unauthorized access.
+* **Smart Session Management:** Secure local storage handling with automatic logouts and token validation.
+
+### 📅 Advanced Scheduling Algorithms
+* **Real-time Conflict Detection:** Prevents overlapping time slots for the same interviewer, ensuring a clash-free schedule.
+* **Dynamic Time Validation:** Auto-expires and hides past interview slots to keep the dashboard clutter-free and relevant.
+* **Interactive Dashboard:** Modern card-based UI that auto-updates dynamically using Angular's Change Detection.
+
+### ⚡ Seamless User Experience (UX)
+* **One-Click Booking:** Streamlined mechanism to book available slots instantly.
+* **Booking History & Analytics:** Dedicated views to track past and confirmed bookings with distinctive status badges.
+* **Smart Modals:** Sleek pop-up forms for data entry, featuring auto-filled dates and times for maximum efficiency.
+* **SPA Navigation:** Smooth, zero-reload transitions utilizing the Angular Router.
+
+---
 
 ## 🛠️ Technology Stack
 
-* **Framework:** Angular (Standalone Components, Modern Control Flow `@if`, `@for`)
-* **Styling:** Tailwind CSS
-* **Language:** TypeScript / HTML / CSS
-* **HTTP Client:** RxJS Observables with Angular `HttpClient`
-
-## ⚙️ Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-* You have installed the latest version of [Node.js](https://nodejs.org/en/) and NPM.
-* You have installed the [Angular CLI](https://angular.io/cli) globally (`npm install -g @angular/cli`).
-
-## 🚀 Installation & Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/interview-sync-frontend.git](https://github.com/your-username/interview-sync-frontend.git)
-    cd interview-sync-frontend
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run the development server:**
-    ```bash
-    ng serve
-    ```
-4.  **View the App:** Open your browser and navigate to `http://localhost:4200/`.
-
-## 🔌 API Integration Details
-
-This frontend is configured to communicate with a Spring Boot Backend. Ensure your backend is running on `http://localhost:8080` (or update the `baseUrl` in the `interview-service.ts` file).
-
-**Key Endpoints Used:**
-* `GET /slot/available` - Fetch all available slots
-* `GET /slot/booked` - Fetch all booked slots
-* `POST /booking/add` - Create a new booking
-* `POST /slot/add` - Create a new interview slot
+* **Core Framework:** Angular (Standalone Components, Modern `@if`/`@for` Control Flow)
+* **Styling & UI:** Tailwind CSS (Custom themes, animations, and responsive design)
+* **Language:** TypeScript
+* **State & HTTP:** RxJS Observables, Angular `HttpClient`, Custom HTTP Interceptors
 
 ---
-*Built with Udara Dewshan*
+
+## ⚙️ Quick Start Guide
+
+### Prerequisites
+Ensure you have the following installed:
+* **Node.js** (v18+) and **NPM**
+* **Angular CLI** (`npm install -g @angular/cli`)
