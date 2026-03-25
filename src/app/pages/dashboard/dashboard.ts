@@ -57,14 +57,17 @@ export class Dashboard implements OnInit {
     this.selectedSlotForBooking = null;
     this.candidateIdForBooking = null;
   }
-
-  confirmBooking() {
+confirmBooking() {
     if (!this.selectedSlotForBooking || !this.candidateIdForBooking) return;
 
+    console.log("Selected Slot Data:", this.selectedSlotForBooking);
+
     const bookingRequest = {
-      interviewSlotId: this.selectedSlotForBooking.id,
+      slotId: this.selectedSlotForBooking.id || this.selectedSlotForBooking.slotId, 
       candidateId: this.candidateIdForBooking
     };
+
+    console.log("Sending Request to Backend:", bookingRequest);
 
     this.interviewService.bookSlot(bookingRequest).subscribe({
       next: (response) => {
@@ -78,7 +81,6 @@ export class Dashboard implements OnInit {
       }
     });
   }
-
   openModal() {
     this.isModalOpen = true;
 
