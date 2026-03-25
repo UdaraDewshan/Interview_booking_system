@@ -43,22 +43,40 @@ export class Dashboard implements OnInit {
     });
   }
 
-  bookAppointment(slot: InterviewSlot) {
-    const isConfirmed = confirm(`Are you sure you want to book the interview with ${slot.interviewerName}?`);
-    
-    if (isConfirmed) {
-      this.interviewService.bookSlot(slot).subscribe({
-        next: (response) => {
-          alert('Appointment Booked Successfully!');
-          
-          this.loadSlots(); 
-        },
-        error: (err) => {
-          console.error("Booking Error:", err);
-          alert('Failed to book the appointment. Please try again.');
-        }
-      });
-    }
+  isBookingModalOpen = false;
+  selectedSlotForBooking: any = null;
+  candidateIdForBooking: number | null = null;
+
+  openBookingModal(slot: InterviewSlot) {
+    this.selectedSlotForBooking = slot;
+    this.isBookingModalOpen = true;
+  }
+
+  closeBookingModal() {
+    this.isBookingModalOpen = false;
+    this.selectedSlotForBooking = null;
+    this.candidateIdForBooking = null;
+  }
+
+  confirmBooking() {
+    if (!this.selectedSlotForBooking || !this.candidateIdForBooking) return;
+
+    const bookingRequest = {
+      interviewSlotId: this.selectedSlotForBooking.id,
+      candidateId: this.candidateIdForBooking
+    };
+
+    this.interviewService.bookSlot(bookingRequest).subscribe({
+      next: (response) => {
+        alert('Appointment Booked Successfully!');
+        this.closeBookingModal();
+        this.loadSlots();
+      },
+      error: (err) => {
+        console.error("Booking Error:", err);
+        alert('Failed to book the appointment. Please check the Candidate ID.');
+      }
+    });
   }
 
   openModal() {
