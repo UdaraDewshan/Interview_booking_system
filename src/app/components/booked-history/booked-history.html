@@ -1,0 +1,53 @@
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="mb-8">
+    <h1 class="text-2xl font-black text-slate-900">Booking History</h1>
+    <p class="text-slate-500 text-sm mt-1 font-medium">View all confirmed and past interview appointments.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    @for (slot of bookedSlots; track $index) {
+      <div class="bg-white rounded-2xl border border-rose-200 opacity-90 transition-all duration-200 flex flex-col">
+        
+        <div class="p-6 flex-1">
+          <div class="flex justify-between items-start mb-4">
+            <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold text-lg border border-slate-200">
+              {{ slot.interviewerName ? slot.interviewerName.charAt(0) : 'U' }} 
+            </div>
+            <span class="px-2.5 py-1 bg-rose-50 text-rose-700 text-[10px] font-black rounded-md border border-rose-200 tracking-wider uppercase">
+              Booked
+            </span>
+          </div>
+
+          <h3 class="font-bold text-slate-900 text-lg">{{ slot.interviewerName || 'Unknown Interviewer' }}</h3>
+          <p class="text-xs text-slate-500 font-semibold mb-4 uppercase tracking-wide">Technical Interviewer</p>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              {{ slot.startTime | date:'mediumDate' }}
+            </div>
+            <div class="flex items-center gap-3 text-sm text-slate-600 font-medium bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              {{ slot.startTime | date:'shortTime' }} - {{ slot.endTime | date:'shortTime' }}
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 border-t border-slate-100 bg-slate-50/50 rounded-b-2xl mt-auto">
+          <button disabled class="w-full py-2.5 rounded-lg font-bold text-sm bg-slate-100 border-2 border-transparent text-slate-400 cursor-not-allowed">
+            Already Booked
+          </button>
+        </div>
+
+      </div>
+
+    } @empty {
+      <div class="col-span-full bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl p-10 text-center">
+        <h3 class="text-lg font-bold text-slate-900 mb-1">No Bookings Yet</h3>
+        <p class="text-slate-500 text-sm">You haven't booked any interview slots yet.</p>
+      </div>
+    }
+
+  </div>
+</main>
